@@ -25,30 +25,37 @@
                                  this.partial('PartialHTMLs/chatForm.html');
 
                                  request.getJSON("http://crowd-chat.herokuapp.com/posts")
-                                    .then(function (data) {
-                                        var partialData = [];
+                                       .then(function (data) {
+                                           var partialData = [];
 
-                                        partialData = data.slice(-20).reverse();
+                                           partialData = data.slice(-20).reverse();
 
-                                        var messageList = $("<ul />").addClass("message-list");
-                                        var templateString = $("#msg-template").html();
-                                        var template = mustache.compile(templateString);
-                                        for (var i in partialData) {
-                                            var message = partialData[i];
-                                            var templatedMessage = template(message);
-                                            var messageItem =
-                                                $("<li />")
-                                                    .addClass("message-item")
-                                                        .html(templatedMessage);
-                                            messageList.append(messageItem);
-                                        }
-                                        $('#msg-content').html(messageList);
-                                    }
-                                    , function (err) {
-                                        $("#main-content").html(err);
-                                    })
+                                           var messageList = $("<ul />").addClass("message-list");
+                                           var templateString = $("#msg-template").html();
+                                           var template = mustache.compile(templateString);
+                                           for (var i in partialData) {
+                                               var message = partialData[i];
+                                               var templatedMessage = template(message);
+                                               var messageItem =
+                                                   $("<li />")
+                                                       .addClass("message-item")
+                                                           .html(templatedMessage);
+                                               messageList.append(messageItem);
+                                           }
+                                           $('#msg-content').html(messageList);
+                                       }
+                                       , function (err) {
+                                           $("#main-content").html(err);
+                                       })
                              });
 
+                             this.get("#/send", function () {
+                                 var userName = $("#user-name").val();
+                                 var message = $("#message").val();
+
+                                 request.postJSON("http://crowd-chat.herokuapp.com/posts", { user: userName, text: message })
+                                 alert('click');
+                             });
                              this.get("#/allMessages", function () {
                                  this.partial('PartialHTMLs/allMessages.html');
                                  request.getJSON("http://crowd-chat.herokuapp.com/posts")

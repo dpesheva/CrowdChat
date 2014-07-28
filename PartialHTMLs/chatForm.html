@@ -1,11 +1,11 @@
 ﻿<fieldset>
-    <label>User: </label>
-    <input type="text" id="user-id" />
+    <label for="user-name" >User: </label>
+    <input type="text" id="user-name" name="user-name" placeholder="username" />
     <br />
-    <label>Message: </label>
-    <input type="text" id="message" />
+    <label for="message">Message: </label>
+    <input type="text" id="message" name="message" placeholder="message" />
     <br />
-    <button id="sendBtn">Send</button>
+    <a id="sendBtn" href="#/send">Send</a>
 </fieldset>
 <span>Last 20 messages in the chat:</span>
 <div id="loading">
