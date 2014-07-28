@@ -2,7 +2,6 @@
 /// <reference path="libs/sammy-0.7.4.js" />
 /// <reference path="libs/jquery-2.0.3.js" />
 
-
 (function () {
 
     require.config({
@@ -22,10 +21,6 @@
                                  $("#main-content").html("View the students page");
                              });
 
-                             this.get("#/about", function () {
-                                 $("#main-content").html("about");
-                             });
-
                              this.get("#/chat", function () {
                                  this.partial('PartialHTMLs/chatForm.html');
 
@@ -33,7 +28,7 @@
                                     .then(function (data) {
                                         var partialData = [];
 
-                                        partialData = data.slice(-20);
+                                        partialData = data.slice(-20).reverse();
 
                                         var messageList = $("<ul />").addClass("message-list");
                                         var templateString = $("#msg-template").html();
@@ -52,7 +47,6 @@
                                     , function (err) {
                                         $("#main-content").html(err);
                                     })
-
                              });
 
                              this.get("#/allMessages", function () {
@@ -77,27 +71,6 @@
                                          $("#main-content").html(err);
                                      })
                              });
-
-                             this.get("#/student/:id", function () {
-                                 request.getJSON("api/students/" + this.params["id"] + "/marks")
-                                     .then(function (marks) {
-                                         var marksList = $('<ul/>').addClass("marks-list");
-                                         var templateString = $("#mark-template").html();
-                                         var template = mustache.compile(templateString);
-                                         for (var i in marks) {
-                                             var mark = marks[i];
-                                             var templatedMark = template(mark);
-                                             //marksList.append(templatedMark);
-                                             var markItem =
-                                                 $("<li />")
-                                                     .addClass("mark-item")
-                                                         .html(templatedMark);
-                                             marksList.append(markItem);
-                                         }
-                                         $("#main-content").html(marksList);
-                                     });
-                             });
-
 
                          });
 
