@@ -5,7 +5,7 @@
     <label for="message">Message: </label>
     <input type="text" id="message" name="message" placeholder="message" />
     <br />
-    <a id="sendBtn" href="#/send">Send</a>
+    <button id="sendBtn">Send Message</button>
 </fieldset>
 <span>Last 20 messages in the chat:</span>
 <div id="loading">
@@ -15,5 +15,5 @@
 </div>
 <script id="msg-template" type="x-mustache-template">
     <strong>{{by}}: </strong>
-    <span>{{text}}</span>
+    <span>{{{text}}}</span>
 </script>

@@ -17,6 +17,16 @@
 
     require(["jquery", "sammy", "mustache", "rsvp", "http-requester", "load-chat"],
                      function ($, sammy, mustache, rsvp, request, load) {
+
+                         $(document).on("click", "#sendBtn", function () {
+                             var userName = $("#user-name").val();
+                             var message = $("#message").val();
+
+                             request.postJSON("http://crowd-chat.herokuapp.com/posts", { user: userName, text: message })
+
+                             load.loadChat('#msg-content', -20);
+                         });
+
                          var app = sammy("#main-content", function () {
                              this.get("#/", function () {
                                  $("#main-content").html("View the main page");
@@ -24,23 +34,14 @@
 
                              this.get("#/chat", function () {
                                  this.partial('PartialHTMLs/chatForm.html');
+
                                  load.loadChat('#msg-content', -20);
-                             });
-
-                             this.get("#/send", function () {
-                                 var userName = $("#user-name").val();
-                                 var message = $("#message").val();
-
-                                 request.postJSON("http://crowd-chat.herokuapp.com/posts", { user: userName, text: message })
-                                 alert('click');
                              });
 
                              this.get("#/allMessages", function () {
                                  this.partial('PartialHTMLs/allMessages.html');
                                  load.loadChat("#main-content");
-
                              });
-
                          });
 
                          app.run("#/");

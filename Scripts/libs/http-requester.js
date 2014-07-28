@@ -18,6 +18,7 @@ define(["jquery", "rsvp"], function ($) {
                 url: serviceUrl,
                 type: "GET",
                 dataType: "json",
+                contentType: "application/json",
                 success: function (data) {
                     resolve(data);
                 },
