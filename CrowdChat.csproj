@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\libs\jquery-2.0.3.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -72,6 +73,7 @@
     <Content Include="Scripts\libs\http-requester.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.min.js" />
     <Content Include="Scripts\libs\mustache.js" />
+    <Content Include="Scripts\libs\load-chat.js" />
     <Content Include="Scripts\libs\require.js" />
     <Content Include="Scripts\libs\rsvp.min.js" />
     <Content Include="Scripts\libs\sammy-0.7.4.js" />
