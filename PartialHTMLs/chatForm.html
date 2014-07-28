@@ -1,0 +1,19 @@
+﻿<fieldset>
+    <label>User: </label>
+    <input type="text" id="user-id" />
+    <br />
+    <label>Message: </label>
+    <input type="text" id="message" />
+    <br />
+    <button id="sendBtn">Send</button>
+</fieldset>
+<span>Last 10 messages in the chat:</span>
+<div id="loading">
+    Loading...
+</div>
+<div id="msg-content">
+</div>
+<script id="msg-template" type="x-mustache-template">
+    <strong>{{by}}: </strong>
+    <span>{{text}}</span>
+</script>

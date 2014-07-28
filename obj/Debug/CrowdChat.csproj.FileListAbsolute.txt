@@ -1,0 +1,6 @@
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\bin\CrowdChat.dll.config
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\bin\CrowdChat.dll
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\bin\CrowdChat.pdb
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\obj\Debug\CrowdChat.csprojResolveAssemblyReference.cache
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\obj\Debug\CrowdChat.dll
+D:\Telerik\JS Applications\Exercise\SPACrowd Chat\CrowdChat\obj\Debug\CrowdChat.pdb
